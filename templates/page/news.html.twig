@@ -1,0 +1,81 @@
+{% extends 'layout/layout-main.html.twig' %}
+
+{% block content %}
+
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/header-bg/2.jpg') }}">
+        <div class="container">
+            <h2>News</h2>
+        </div>
+    </section>
+    <!-- Page top section end -->
+
+    <!-- News section -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="game-title">
+                <h2>Latest News</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+                    <div class="sb-widget">
+                        <form class="sb-search">
+                            <input type="text" placeholder="Search">
+                        </form>
+                    </div>
+                    <div class="sb-widget">
+                        <h2 class="sb-title">Categories</h2>
+                        <ul class="sb-cata-list">
+                            <li><a href="">Events<span>20</span></a></li>
+                            <li><a href="">Updates<span>23</span></a></li>
+                            <li><a href="">Miscellaneous<span>26</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                {% for i in 0..10 %}
+
+                    {% if loop.first %}
+
+                        <div class="col-lg-9">
+                            <div class="blog-post featured-post">
+                                <img src="{{ asset('assets/img/blog/1.jpg') }}" alt="">
+                                <div class="post-date">April 1, 2019</div>
+                                <a href="#">
+                                    <h3>Update 1.24</h3>
+                                </a>
+                                <div class="post-metas">
+                                    <div class="post-meta">By Admin</div>
+                                    <div class="post-meta"><a href="#">Updates</a></div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Morbi id dictum quam, ut commodo lorem. In at nisi nec arcu porttitor aliquet vitae at dui. </p>
+                            </div>
+                        </div>
+
+                    {% else %}
+
+                        <div class="col-md-4">
+                            <div class="blog-post">
+                                <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
+                                <div class="post-date">April 1,2019</div>
+                                <a href="#">
+                                    <h4>Update 1.24</h4>
+                                </a>
+                                <div class="post-metas">
+                                    <div class="post-meta">By Admin</div>
+                                    <div class="post-meta"><a href="#">Updates</a></div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
+                            </div>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- News section end -->
+
+{% endblock %}
