@@ -1,0 +1,9 @@
+- mail: patron@gmail.com
+  userName: Patron
+  password: patron
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- mail: nounours@gmail.com
+  userName: Nounours
+  password: nounours
+  image: assets/img/ammo-types/Light_Rounds.png

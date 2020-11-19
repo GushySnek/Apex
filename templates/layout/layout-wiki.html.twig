@@ -1,0 +1,44 @@
+{% extends 'layout/layout-main.html.twig' %}
+
+{% block content %}
+
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/header-bg/2.jpg') }}">
+        <div class="container">
+            <h2>{% block title %}{% endblock %}</h2>
+        </div>
+    </section>
+    <!-- Page top section end -->
+
+    {% block presentation %}
+    {% endblock %}
+
+    <!-- List section -->
+    <section class="characters-boxes-section spad">
+        <div class="container">
+            <div class="game-title">
+                <h2>{% block listTitle %}{% endblock %}</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+                    <div class="sb-widget">
+                        <h2 class="sb-title">Categories</h2>
+                        <ul class="sb-cata-list checklist">
+                            {% block categories %}
+                            {% endblock %}
+                        </ul>
+                        <div class="text-center mt-1">
+                            <a href="{{ url('news') }}" class="site-btn">Filter</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% block list %}
+                {% endblock %}
+
+            </div>
+        </div>
+    </section>
+    <!-- List section end -->
+
+{% endblock %}

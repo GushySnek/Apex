@@ -1,0 +1,43 @@
+- name: Sentinel
+  description: "The Sentinel is a sniper rifle introduced in Season 4. It has a unique 'Amped' mechanic: 2 Shield Cells
+  (1 with the Level 4 Body Shield) charge up the Sentinel, making its shots guaranteed to do extra damage. Charging
+  takes 5 seconds and lasts 120 seconds, although each shot will shorten the timer by 15 seconds."
+  type: Sniper Rifle
+  image: assets/img/ammo-types/Light_Rounds.png
+  bodyDamage: 70
+  headDamage: 140
+  rateOfFire: 37.5
+  fireMode: Single
+  ammoType: Sniper Ammo
+  tags:
+    - Weapons
+    - Sentinel
+
+- name: VK-47 Flatline
+  description: "The VK-47 Flatline is an assault rifle which uses heavy rounds."
+  type: Assault Rifle
+  image: assets/img/ammo-types/Light_Rounds.png
+  bodyDamage: 19
+  headDamage: 38
+  rateOfFire: 600
+  fireMode: Auto, Single
+  ammoType: Heavy Rounds
+  tags:
+    - Weapons
+    - Flatline
+
+- name: Peacekeeper
+  description: "The Peacekeeper is a special Heirloom rarity lever-action magazine-loaded shotgun that uses Special
+  Shotgun Shells. It fires 11 pellets in the shape of a star (1 pellet in the middle and 2 on each outer line of the
+  star shape). As a care package weapon, it can only be found in Care Packages, and cannot be fitted with foreign
+  attachments or ammo. It comes pre-equipped with 20 backup ammo and a 1x Digital Threat scope."
+  type: Shotgun
+  image: assets/img/ammo-types/Light_Rounds.png
+  bodyDamage: 110
+  headDamage: 143
+  rateOfFire: 58
+  fireMode: Single
+  ammoType: Shotgun Shells
+  tags:
+    - Weapons
+    - Peacekeeper

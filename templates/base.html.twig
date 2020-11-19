@@ -23,6 +23,10 @@
         {% endblock %}
     </head>
     <body>
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
         {% block body %}
 
         {% endblock %}
@@ -34,6 +38,7 @@
             <script src="{{ asset('assets/js/circle-progress.min.js') }}"></script>
             <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
             <script src="{{ asset('assets/js/main.js') }}"></script>
+            <script src="{{ asset('assets/js/input.js') }}"></script>
         {% endblock %}
     </body>
 </html>

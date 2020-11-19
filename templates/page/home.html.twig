@@ -58,46 +58,32 @@
         <div class="container">
             <div class="row">
                 <div class="blog-posts">
+                    <div class="game-title">
+                        <h2>Latest News</h2>
+                    </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="blog-post">
-                                <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
-                                <div class="post-date">April 1,2019</div>
-                                <h4>Update 1.24</h4>
-                                <div class="post-metas">
-                                    <div class="post-meta">By Admin</div>
-                                    <div class="post-meta"><a href="#">Updates</a></div>
+
+                        {% for i in 0..2 %}
+
+                            <div class="col-md-4">
+                                <div class="blog-post">
+                                    <a href="{{ url('news-details') }}">
+                                        <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
+                                    </a>
+                                    <div class="post-date">April 1,2019</div>
+                                    <a href="{{ url('news-details') }}">
+                                        <h4>Update 1.24</h4>
+                                    </a>
+                                    <div class="post-metas">
+                                        <div class="post-meta">By Admin</div>
+                                        <div class="post-meta"><a href="{{ url('news-details') }}">Updates</a></div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-                                <a href="#" class="read-more">Read More</a>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="blog-post">
-                                <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
-                                <div class="post-date">April 1,2019</div>
-                                <h4>Update 1.24</h4>
-                                <div class="post-metas">
-                                    <div class="post-meta">By Admin</div>
-                                    <div class="post-meta"><a href="#">Updates</a></div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="blog-post">
-                                <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
-                                <div class="post-date">April 1,2019</div>
-                                <h4>Update 1.24</h4>
-                                <div class="post-metas">
-                                    <div class="post-meta">By Admin</div>
-                                    <div class="post-meta"><a href="#">Updates</a></div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
+
+                        {% endfor %}
+
                     </div>
                 </div>
                 <div class="col-md-12 text-right">

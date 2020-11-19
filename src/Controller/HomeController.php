@@ -23,7 +23,7 @@ class HomeController extends AbstractController
      */
 
     public function characters() {
-        return $this->render("page/wiki.html.twig");
+        return $this->render("page/characters.html.twig");
     }
 
     /**
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
      */
 
     public function weapons() {
-        return $this->render("page/wiki.html.twig");
+        return $this->render("page/weapons.html.twig");
     }
 
     /**
@@ -40,5 +40,45 @@ class HomeController extends AbstractController
 
     public function news() {
         return $this->render("page/news.html.twig");
+    }
+
+    /**
+     * @Route("/news-details", name="news-details")
+     */
+
+    public function newsDetails() {
+        return $this->render("page/news-details.html.twig");
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+
+    public function contact() {
+        return $this->render("page/contact.html.twig");
+    }
+
+    /**
+     * @Route("/profile-connect", name="profile-connect")
+     */
+
+    public function profileConnect() {
+        return $this->render("page/profile-connect.html.twig");
+    }
+
+    /**
+     * @Route("/profile-create", name="profile-create")
+     */
+
+    public function profileCreate() {
+        return $this->render("page/profile-create.html.twig");
+    }
+
+    /**
+     * @Route("/profile-edit", name="profile-edit")
+     */
+
+    public function profileEdit() {
+        return $this->render("page/profile-edit.html.twig");
     }
 }

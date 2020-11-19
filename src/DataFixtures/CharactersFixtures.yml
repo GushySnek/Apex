@@ -1,0 +1,34 @@
+- name: Lifeline
+  description: "Lifeline is a Legend that is free and is unlocked immediately in the base game. A Support Legend with
+  healing abilities, Lifeline is a Legend best for keeping her team alive and up in a firefight. Her D.O.C. Heal Drone
+  is great for keeping allies alive or quickly healing them after a fight. Her Combat Revive passive allows her drone
+  to revive teammates behind an indestructible cover while she does her own thing, this also allows her to open the
+  extra compartment in blue supply bins. Lastly, when her ultimate is ready, she can call in helpful Gear with her
+  fan-favorite Care Package"
+  role: Support
+  image: assets/img/ammo-types/Light_Rounds.png
+  tags:
+    - Characters
+    - Lifeline
+  skills:
+    - D.O.C. Heal Drone
+    - Combat Revive
+    - Care Package
+    - Low Profile
+
+- name: Rampart
+  description: "Rampart is a Legend released in Season 6. She can be unlocked using Apex Coins 750 or Legend Tokens
+  12,000; or by buying the Champion Edition. Rampart is a Defensive Legend able to create multiple heavily armored
+  protective barriers. Her abilities allow the team to keep dealing damage on enemies from the safety of the Amped
+  Cover. She can also deploy an Emplaced Minigun \"Sheila\", her ultimate, for her and two more for each of her squad
+  mates to use at the same time. Modded Loader, her passive, will make LMGs and the Minigun even deadlier in this
+  modder's hands."
+  role: Defensive
+  image: assets/img/ammo-types/Light_Rounds.png
+  tags:
+    - Characters
+    - Rampart
+  skills:
+    - Amped Cover
+    - Modded Loader
+    - Emplaced Minigun "Sheila"

@@ -1,0 +1,91 @@
+{% extends 'layout/layout-wiki.html.twig' %}
+
+{% block title %}Weapons{% endblock title %}
+
+{% block presentation %}
+
+    <!-- Character section 1 -->
+    <section class="characters-section character-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="character-info">
+                        <h2>Sentinel</h2>
+                        <h5>Sniper Rifle</h5>
+                        <p class="pt-1">The Sentinel is a sniper rifle introduced in Season 4.</p>
+                        <p class="mb-1">It has a unique 'Disruptor' mechanic: 2 Shield Cells (1 with the Level 4 Body Shield) charge up the Sentinel, making its shots guaranteed to completely shatter enemies' shields. Charging takes 5 seconds and lasts 120 seconds, although each shot will shorten the timer by 15 seconds.</p>
+                        <div class="progress-warp">
+                            <div class="small-blog-list">
+                                <div class="sb-item weapon">
+                                    <div class="sb-text">
+                                        <h6>Damage:</h6>
+                                        <p>70 body/140 head</p>
+                                    </div>
+                                </div>
+                                <div class="sb-item weapon">
+                                    <div class="sb-text">
+                                        <h6>Rate of Fire:</h6>
+                                        <p>37.5 Rounds/minute</p>
+                                    </div>
+                                </div>
+                                <div class="sb-item weapon">
+                                    <div class="sb-text">
+                                        <h6>Fire Mode:</h6>
+                                        <p>Single Fire</p>
+                                    </div>
+                                </div>
+                                <div class="sb-item weapon">
+                                    <div class="sb-text">
+                                        <h6>Ammo Type:</h6>
+                                        <img src="{{ asset('assets/img/ammo-types/Sniper_Ammo.png') }}" alt="">
+                                        <p>Sniper Ammo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <a href="{{ url('news') }}" class="site-btn">See Related News</a>
+                    </div>
+                </div>
+            </div>
+            <div class="character-img">
+                <img src="{{ asset('assets/img/game-characters/2.png') }}" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- Character section 1 end -->
+
+{% endblock %}
+
+{% block listTitle %}The Weapons{% endblock %}
+
+{% block categories %}
+
+    <li><a href="">Assault Rifles<span>5</span></a></li>
+    <li><a href="">Sub Machine Guns<span>4</span></a></li>
+    <li><a href="">Light Machine Guns<span>3</span></a></li>
+    <li><a class="active" href="">Sniper Rifles<span>5</span></a></li>
+    <li><a href="">Shotguns<span>4</span></a></li>
+    <li><a href="">Pistols<span>3</span></a></li>
+
+{% endblock %}
+
+{% block list %}
+
+    {% for i in 0..4 %}
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="characters-box">
+                <a href="#">
+                    <img src="{{ asset('assets/img/characters-boxes/2.png') }}" alt="">
+                </a>
+                <a href="#">
+                    <h4>Sentinel</h4>
+                </a>
+                <p>Vestibulum malesuada aliquet libero viverra cursus. Aliquam erat volut-pat. Morbi id dictum quam, ut com-modo lorem.</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

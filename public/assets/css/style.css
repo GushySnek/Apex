@@ -49,6 +49,14 @@ h5 {
 	font-size: 18px;
 }
 
+h5 a {
+	color: #AA322C;
+}
+
+h5 a:hover {
+	color: #fff;
+}
+
 h6 {
 	font-size: 16px;
 }
@@ -123,9 +131,79 @@ Helper CSS
 	color: #fff;
 }
 
+.pt-0 {
+	padding-top: 0;
+}
+
+.pt-1 {
+	padding-top: 30px !important;
+}
+
+.mb-1 {
+	margin-bottom: 45px !important;
+}
+
+.mt-1 {
+	margin-top: 45px !important;
+}
+
+.mt-2 {
+	margin-top: 15px !important;
+}
+
+.ml-1 {
+	margin-left: 30px !important;
+}
+
 /*---------------------
 Commom elements
  -----------------------*/
+
+label {
+	color: white;
+}
+
+#accordion a {
+	color: #fff;
+}
+
+#accordion a:hover {
+	color: #AA322C;
+}
+
+.accordion-header {
+	cursor: pointer;
+}
+
+.accordion-header::after {
+	content: "\f0d7";
+	font-family: "FontAwesome";
+}
+
+.accordion-header[aria-expanded="true"]::after {
+	content: "\f0d8";
+	font-family: "FontAwesome";
+}
+
+.accordion-header[aria-expanded="true"] {
+	color: #AA322C !important;
+}
+
+.accordion-header[aria-expanded="true"]:hover {
+	color: #fff !important;
+}
+
+.accordion-menu {
+	padding-bottom: 15px;
+}
+
+.sub-menu .sb-cata-list {
+	margin-top: 20px;
+}
+
+.sub-menu ul li {
+	margin-left: 30px;
+}
 
 /* buttons */
 
@@ -266,7 +344,7 @@ Header section
 	color: #fff;
 }
 
-.main-menu li a:after {
+.main-menu li a.line:after {
 	position: absolute;
 	content: "";
 	width: 0;
@@ -278,8 +356,18 @@ Header section
 	transition: all 0.3s;
 }
 
-.main-menu li a:hover:after {
+.main-menu li a.line:hover:after {
 	width: 100%;
+}
+
+.profile-link {
+	float: right;
+	margin: 25px 100px 0 0;
+}
+
+.profile-link img {
+	height: 60px;
+	border-radius: 50%;
 }
 
 .slicknav_menu {
@@ -431,10 +519,6 @@ Header section
 	background: #111;
 }
 
-.blog-section .blog-posts {
-	margin-bottom: -70px;
-}
-
 .blog-post {
 	margin-bottom: 70px;
 }
@@ -464,7 +548,7 @@ Header section
 	margin-bottom: 10px;
 }
 
-.blog-post h3:hover,
+.blog-post:not(.single-post) h3:hover,
 .blog-post h4:hover {
 	color: #BF352F;
 }
@@ -593,12 +677,26 @@ Header section
 
 .sb-cata-list li a {
 	display: block;
-	color: #BF352F;
+	color: #fff;
 	font-size: 16px;
 }
 
 .sb-cata-list li a:hover {
-	color: #fff;
+	color: #BF352F;
+}
+
+.sb-cata-list li a.active {
+	color: #BF352F !important;
+}
+
+.sb-cata-list li a.active:hover {
+	color: #fff !important;
+}
+
+.checklist li a.active::after {
+	content: "\f00c";
+	font-family: "FontAwesome";
+	margin-left: 10px;
 }
 
 .sb-cata-list li span {
@@ -816,7 +914,8 @@ Blog list section
 }
 
 .small-blog-list .sb-item {
-	margin-bottom: 43px;
+	height: 100px;
+	margin-bottom: 30px;
 	position: relative;
 }
 
@@ -825,9 +924,28 @@ Blog list section
 }
 
 .small-blog-list .sb-item img {
-	width: 166px;
+	max-height: 100px;
 	float: left;
 	margin-right: 27px;
+}
+
+.small-blog-list .sb-item.weapon {
+	height: 30px;
+}
+
+.small-blog-list .sb-item.weapon img {
+	max-height: 30px;
+	margin-right: 10px;
+}
+
+.small-blog-list .sb-item.weapon h6 {
+	float: left;
+	line-height: 30px;
+	margin-right: 20px;
+}
+
+.small-blog-list .sb-item.weapon p {
+	line-height: 30px;
 }
 
 .small-blog-list .sb-text {
@@ -847,7 +965,7 @@ Blog list section
 	font-size: 18px;
 	font-weight: 500;
 	color: #fff;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .small-blog-list .sb-text .sb-metas {
@@ -887,6 +1005,7 @@ Blog list section
 }
 
 .small-blog-list .sb-text p {
+	padding-top: 0;
 	margin-bottom: 0;
 }
 
@@ -978,11 +1097,11 @@ Footer section
 }
 
 .copyright a {
-	color: #8c8c8c;
+	color: #BF352F;
 }
 
 .copyright a:hover {
-	color: #BF352F;
+	color: #fff;
 }
 
 .copyright i {
@@ -1073,11 +1192,20 @@ Other pages
 	background: #BF352F;
 }
 
+.site-pagination {
+	margin: 50px 0;
+}
+
 .site-pagination a {
 	display: inline-block;
 	font-size: 14px;
 	color: #fff;
 	font-weight: 500;
+	margin: 0 10px;
+}
+
+.site-pagination a:hover {
+	color: #BF352F;
 }
 
 .site-pagination a.sp-next,
@@ -1086,13 +1214,22 @@ Other pages
 	margin-right: 10px;
 }
 
+.site-pagination a.sp-next:hover,
+.site-pagination a.sp-prev:hover {
+	color: #BF352F;
+}
+
 .site-pagination a.sp-next {
 	margin-right: 0;
 	margin-left: 10px;
 }
 
 .site-pagination a.active {
-	color: #10ddb4;
+	color: #BF352F;
+}
+
+.site-pagination a.active:hover {
+	color: #fff;
 }
 
 /* ----------------
@@ -1148,7 +1285,11 @@ Single Post page
 .comments-list .comment-text .reply {
 	padding-left: 7px;
 	font-size: 14px;
-	color: #10ddb4;
+	color: #BF352F;
+}
+
+.comments-list .comment-text .reply:hover {
+	color: #fff;
 }
 
 .comments-list .comment-text .comment-date {
@@ -1177,7 +1318,7 @@ Single Post page
 
 .comment-form input:focus,
 .comment-form textarea:focus {
-	border-bottom-color: #10ddb4;
+	border-bottom-color: #BF352F;
 }
 
 .comment-form textarea {
@@ -1192,13 +1333,9 @@ Responsive
  ---------------------*/
 
 .characters-section {
-	padding: 144px 0 118px;
+	padding: 50px 0 50px;
 	overflow: hidden;
 	position: relative;
-}
-
-.character-info img {
-	margin-bottom: 3px;
 }
 
 .character-info h2 {
@@ -1212,9 +1349,8 @@ Responsive
 	margin-bottom: 9px;
 }
 
-.character-info p {
-	padding-top: 30px;
-	margin-bottom: 40px;
+.character-info .site-btn {
+	margin-top: 30px;
 }
 
 .circle-progress {
@@ -1237,11 +1373,14 @@ Responsive
 }
 
 .cp-item {
-	display: inline-block;
 	text-align: center;
-	margin-right: 50px;
+	margin-right: 80px;
 	margin-left: 10px;
 	margin-bottom: 40px;
+}
+
+.cp-item img {
+	max-height: 80px;
 }
 
 .cp-item h3 {
@@ -1260,15 +1399,15 @@ Responsive
 	position: absolute;
 }
 
-.character-one {
+.character-main {
 	background: #1c1c1c;
 }
 
-.character-one .character-img {
-	bottom: -180px;
+.character-main .character-img {
+	top: 50px;
 	right: 0;
-	width: 42%;
-	text-align: right;
+	width: 35%;
+	text-align: center;
 }
 
 .character-two {
@@ -1373,7 +1512,8 @@ Game Page
 }
 
 .characters-box {
-	margin-bottom: 30px;
+	margin-bottom: 50px;
+	border-bottom: solid 2px #BF352F;
 }
 
 .characters-box img {
@@ -1384,6 +1524,10 @@ Game Page
 .characters-box h4 {
 	color: #fff;
 	margin-bottom: 20px;
+}
+
+.characters-box h4:hover {
+	color: #BF352F;
 }
 
 .characters-box p {
@@ -1600,14 +1744,14 @@ Responsive
 		width: 35%;
 	}
 	.character-two .character-img {
-		bottom: -100px;
+		bottom: 50px;
 	}
 	.character-three .character-img {
 		width: 40%;
 	}
-	.character-one .character-img,
+	.character-main .character-img,
 	.character-four .character-img {
-		bottom: 0;
+		bottom: 80px;
 	}
 }
 
@@ -1626,10 +1770,10 @@ Responsive
 	.social-links a {
 		margin-right: 60px;
 	}
-	.character-one .character-img,
+	.character-main .character-img,
 	.character-two .character-img,
 	.character-four .character-img {
-		bottom: 0;
+		bottom: 80px;
 	}
 	.character-three .character-img {
 		width: 44%;
@@ -1682,14 +1826,14 @@ Responsive
 	.characters-section {
 		padding-bottom: 0;
 	}
-	.character-one .character-img,
+	.character-main .character-img,
 	.character-two .character-img,
 	.character-three .character-img,
 	.character-four .character-img {
 		position: relative;
 		left: 0;
 		right: 0;
-		bottom: 0;
+		bottom: 80px;
 		top: 0;
 		width: 100%;
 		padding-top: 70px;
@@ -1787,14 +1931,14 @@ Responsive
 	.characters-section {
 		padding-bottom: 0;
 	}
-	.character-one .character-img,
+	.character-main .character-img,
 	.character-two .character-img,
 	.character-three .character-img,
 	.character-four .character-img {
 		position: relative;
 		left: 0;
 		right: 0;
-		bottom: 0;
+		bottom: 80px;
 		top: 0;
 		width: 100%;
 		padding-top: 70px;
@@ -1828,3 +1972,54 @@ Responsive
 		font-size: 36px;
 	}
 }
+
+/*Profile Pic Start*/
+.picture-container{
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.picture{
+	width: 106px;
+	height: 106px;
+	background-color: #999999;
+	border: 4px solid #CCCCCC;
+	color: #FFFFFF;
+	border-radius: 50%;
+	margin: 0px auto;
+	overflow: hidden;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+}
+.picture:hover{
+	border-color: #2ca8ff;
+}
+.content.ct-wizard-green .picture:hover{
+	border-color: #05ae0e;
+}
+.content.ct-wizard-blue .picture:hover{
+	border-color: #3472f7;
+}
+.content.ct-wizard-orange .picture:hover{
+	border-color: #ff9500;
+}
+.content.ct-wizard-red .picture:hover{
+	border-color: #ff3b30;
+}
+.picture input[type="file"] {
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	left: 0;
+	opacity: 0 !important;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.picture-src{
+	width: 100%;
+
+}
+/*Profile Pic End*/

@@ -1,0 +1,89 @@
+{% extends 'layout/layout-wiki.html.twig' %}
+
+{% block title %}Characters{% endblock title %}
+
+{% block presentation %}
+
+<!-- Character section 1 -->
+<section class="characters-section character-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="character-info">
+                    <h2>Lifeline</h2>
+                    <h5>Support</h5>
+                    <p class="pt-1 mb-1">A Support Legend with healing abilities, Lifeline is a Legend best for keeping her team alive and up in a firefight. Her D.O.C. Heal Drone is great for keeping allies alive or quickly healing them after a fight. Her Combat Revive passive allows her drone to revive teammates behind an indestructible cover while she does her own thing, this also allows her to open the extra compartment in blue supply bins. Lastly, when her ultimate is ready, she can call in helpful Gear with her fan-favorite Care Package</p>
+                    <div class="small-blog-list">
+                        <div class="sb-item">
+                            <img src="{{ asset('assets/img/skills/D.O.C._Heal_Drone.png') }}" alt="">
+                            <div class="sb-text">
+                                <h6>D.O.C. Heal Drone</h6>
+                                <p>Call your Drone of Compassion to automatically heal nearby players over time.</p>
+                            </div>
+                        </div>
+                        <div class="sb-item">
+                            <img src="{{ asset('assets/img/skills/Combat_Revive.png') }}" alt="">
+                            <div class="sb-text">
+                                <h6>Combat Revive</h6>
+                                <p>Deploy D.O.C to revive teammates. D.O.C. will deploy a shield and revive Lifeline’s teammate, leaving Lifeline free to defend or revive someone else.</p>
+                            </div>
+                        </div>
+                        <div class="sb-item">
+                            <img src="{{ asset('assets/img/skills/Care_Package.png') }}" alt="">
+                            <div class="sb-text">
+                                <h6>Care Package</h6>
+                                <p>Call in a drop pod with a combination of 3 high-quality attachments, consumables, and/or gear.</p>
+                            </div>
+                        </div>
+                        <div class="sb-item">
+                            <img src="{{ asset('assets/img/skills/Low_Profile.png') }}" alt="">
+                            <div class="sb-text">
+                                <h6>Low Profile</h6>
+                                <p>More difficult to hit, incoming damage increased by 5%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <a href="{{ url('news') }}" class="site-btn">See Related News</a>
+                </div>
+            </div>
+        </div>
+        <div class="character-img">
+            <img src="{{ asset('assets/img/game-characters/1.png') }}" alt="">
+        </div>
+    </div>
+</section>
+<!-- Character section 1 end -->
+
+{% endblock %}
+
+{% block listTitle %}The Characters{% endblock %}
+
+{% block categories %}
+
+    <li><a href="">Offensive<span>5</span></a></li>
+    <li><a href="">Defensive<span>4</span></a></li>
+    <li><a class="active" href="">Support<span>2</span></a></li>
+    <li><a href="">Recon<span>3</span></a></li>
+
+{% endblock %}
+
+{% block list %}
+
+    {% for i in 0..1 %}
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="characters-box">
+                <a href="#">
+                    <img src="{{ asset('assets/img/characters-boxes/1.png') }}" alt="">
+                </a>
+                <a href="#">
+                    <h4>Lifeline</h4>
+                </a>
+                <p>Vestibulum malesuada aliquet libero viverra cursus. Aliquam erat volut-pat. Morbi id dictum quam, ut com-modo lorem.</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+- title: 1.25
+  date: "13-11-2020"
+  content: "Hehe boiiiiiiiiiiii."
+  image: assets/img/ammo-types/Light_Rounds.png
+  tags:
+    - Updates
+    - Sentinel
+
+- title: Halloween
+  date: "31-10-2020"
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate vulputate quam et facilisis. Orci
+  varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vitae nisl a ligula fermentum
+  egestas. Mauris suscipit odio eu sem finibus, sed semper lacus laoreet. Vivamus ut nisl commodo, commodo dolor quis,
+  eleifend nisl. Sed molestie arcu in metus viverra, quis auctor justo laoreet. Phasellus tempor est sit amet ultricies
+  semper. Proin nec molestie sem. Donec at lacus quis elit varius gravida."
+  image: assets/img/ammo-types/Light_Rounds.png
+  tags:
+    - Events
+    - Lifeline

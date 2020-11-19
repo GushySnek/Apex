@@ -1,0 +1,29 @@
+- name: Weapons
+  color: "#fff"
+
+- name: Sentinel
+  color: "#f00"
+
+- name: Flatline
+  color: "#0f0"
+
+- name: Peacekeeper
+  color: "#00f"
+
+- name: Characters
+  color: "#f0f"
+
+- name: Lifeline
+  color: "#0ff"
+
+- name: Rampart
+  color: "#ff0"
+
+- name: Updates
+  color: "#5f0"
+
+- name: Events
+  color: "#f50"
+
+- name: Loba
+  color: "#ff5"

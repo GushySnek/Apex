@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/apex.iml" filepath="$PROJECT_DIR$/.idea/apex.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../thequest/thequest/thequest.iml" filepath="$PROJECT_DIR$/../thequest/thequest/thequest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Template/thequest/thequest.iml" filepath="$PROJECT_DIR$/../../Template/thequest/thequest.iml" />
     </modules>
   </component>
 </project>

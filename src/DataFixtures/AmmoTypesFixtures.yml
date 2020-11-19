@@ -1,0 +1,14 @@
+- name: Light Rounds
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Heavy Rounds
+  image: assets/img/ammo-types/Heavy_Rounds.png
+
+- name: Energy Ammo
+  image: assets/img/ammo-types/Energy_Ammo.png
+
+- name: Shotgun Shells
+  image: assets/img/ammo-types/Shotgun_Shells.png
+
+- name: Sniper Ammo
+  image: assets/img/ammo-types/Sniper_Ammo.png

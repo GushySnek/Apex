@@ -1,0 +1,36 @@
+{% extends 'layout/layout-main.html.twig' %}
+
+{% block content %}
+
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/header-bg/1.jpg') }}">
+        <div class="container">
+            <h2>Send me a Message</h2>
+        </div>
+    </section>
+    <!-- Page top section end -->
+
+    <!-- Blog section -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row justify-content-center">
+                <form class="comment-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Your e-mail">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea placeholder="Your message"></textarea>
+                            <button class="site-btn">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Blog section end -->
+
+{% endblock %}

@@ -1,0 +1,29 @@
+- name: Amped Cover
+  description: "Build a crouch-cover wall, which deploys a full-cover amped wall that blocks incoming shots and amps
+  outgoing shots. (Max: 5)"
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Modded Loader
+  description: "Increased magazine/heat capacity and faster reloads/recharge when using LMGs and the Minigun."
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Emplaced Minigun "Sheila"
+  description: "Place a mounted machine gun that anyone can use. High ammo capacity, long reload time. (Max: 3)"
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: D.O.C. Heal Drone
+  description: "Call your Drone of Compassion to automatically heal nearby players over time."
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Combat Revive
+  description: "Deploy D.O.C to revive teammates. D.O.C. will deploy a shield and revive Lifeline’s teammate, leaving
+  Lifeline free to defend or revive someone else."
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Care Package
+  description: "Call in a drop pod with a combination of 3 high-quality attachments, consumables, and/or gear."
+  image: assets/img/ammo-types/Light_Rounds.png
+
+- name: Low Profile
+  description: "More difficult to hit, incoming damage increased by 5%."
+  image: assets/img/ammo-types/Light_Rounds.png
