@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    images_path: '%kernel.project_dir%/public/uploads'
 
 services:
     # default configuration for services in *this* file
@@ -29,3 +30,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\ImageUploader:
+        arguments: ['%images_path%']
+
+    App\Service\Listener\WeaponListener: # le nom complet de la classe comme identifiant de service
+        arguments: ['%images_path%']
+        tags:
+            - name: 'doctrine.event_subscriber'
+
+    App\Service\Listener\UserCreationListener:
+        tags:
+            - name: doctrine.orm.entity_listener
+              event: postPersist
+              entity: App\Entity\User
+                # method attribute is optional
+              method: validateEmail

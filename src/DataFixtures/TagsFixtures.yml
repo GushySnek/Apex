@@ -1,29 +1,69 @@
 - name: Weapons
-  color: "#fff"
+  color: "#5f5"
+  type: general
+  individual: false
 
-- name: Sentinel
+- name: Heroes
+  color: "#5f5"
+  type: general
+  individual: false
+
+- name: Sniper Rifle
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Assault Rifle
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Shotgun
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Sub Machine Gun
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Light Machine Gun
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Pistols
+  color: "#555"
+  type: Weapons
+  individual: false
+
+- name: Support
   color: "#f00"
+  type: Heroes
+  individual: false
 
-- name: Flatline
-  color: "#0f0"
+- name: Defensive
+  color: "#f00"
+  type: Heroes
+  individual: false
 
-- name: Peacekeeper
-  color: "#00f"
+- name: Offensive
+  color: "#f00"
+  type: Heroes
+  individual: false
 
-- name: Characters
-  color: "#f0f"
-
-- name: Lifeline
-  color: "#0ff"
-
-- name: Rampart
-  color: "#ff0"
+- name: Recon
+  color: "#f00"
+  type: Heroes
+  individual: false
 
 - name: Updates
   color: "#5f0"
+  type: news
+  individual: false
 
 - name: Events
-  color: "#f50"
-
-- name: Loba
-  color: "#ff5"
+  color: "#5f0"
+  type: news
+  individual: false

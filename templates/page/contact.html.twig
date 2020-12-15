@@ -1,5 +1,7 @@
 {% extends 'layout/layout-main.html.twig' %}
 
+{% form_theme form 'form/theme.html.twig' %}
+
 {% block content %}
 
     <!-- Page top section -->
@@ -14,20 +16,26 @@
     <section class="blog-section spad">
         <div class="container">
             <div class="row justify-content-center">
-                <form class="comment-form">
+                <div class="col-md-8">
+                    {{ form_start(form) }}
+
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" placeholder="Your name">
+                            {{ form_widget(form.name) }}
                         </div>
-                        <div class="col-md-6">
-                            <input type="text" placeholder="Your e-mail">
-                        </div>
-                        <div class="col-md-12">
-                            <textarea placeholder="Your message"></textarea>
-                            <button class="site-btn">Send Message</button>
+                        <div class="widget col-md-6">
+                            {{ form_widget(form.email) }}
                         </div>
                     </div>
-                </form>
+                    <div class="widget mt-2">
+                        {{ form_widget(form.content) }}
+                    </div>
+                    <div class="mt-1 text-center">
+                        {{ form_widget(form.send) }}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
     </section>

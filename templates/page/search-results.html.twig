@@ -1,0 +1,90 @@
+{% extends 'layout/layout-wiki.html.twig' %}
+
+{% block title %}Search Results{% endblock title %}
+
+{% block list %}
+
+    <section class="characters-boxes-section spad">
+        <div class="container">
+
+            {% if weapons %}
+
+                <div class="game-title">
+                    <h2>Weapons</h2>
+                </div>
+                <div class="row">
+
+                    {% for weapon in weapons %}
+                        <a class="col-lg-3 col-sm-4 mb-1" href="{{ url('showWeapon', {slug: weapon.slug}) }}">
+                            <div class="characters-box">
+                                <div class="weapon-img-small text-center">
+                                    <img src="{{ asset('uploads/'~weapon.image) }}" alt="{{ weapon.name }}">
+                                </div>
+                                <h4>{{ weapon.name }}</h4>
+                                <p class="short-description">
+                                    {{ weapon.description }}
+                                </p>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+            {% if heroes %}
+
+                <div class="game-title">
+                    <h2>Heroes</h2>
+                </div>
+                <div class="row">
+
+                    {% for hero in heroes %}
+                        <a class="col-lg-3 col-sm-4 mb-1" href="{{ url('heroesShow', {slug: hero.slug}) }}">
+                            <div class="characters-box">
+                                <div class="character-img-small text-center">
+                                    <img src="{{ asset('uploads/'~hero.image) }}" alt="{{ hero.name }}">
+                                </div>
+                                <h4>{{ hero.name }}</h4>
+                                <p class="short-description">
+                                    {{ hero.description }}
+                                </p>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+            {% if newsList %}
+
+                <div class="game-title">
+                    <h2>News</h2>
+                </div>
+                <div class="row">
+
+                    {% for news in newsList %}
+                        <a class="col-lg-3 col-sm-4 mb-1" href="{{ url('news-details', {slug: news.slug}) }}">
+                            <div class="characters-box">
+                                <div class="character-img-small text-center">
+                                    <img src="{{ asset('uploads/'~news.image) }}" alt="{{ news.title }}">
+                                </div>
+                                <div class="post-date">{{ news.date|date('d/m/Y') }}</div>
+                                <!--<a href="#">Updates</a>-->
+                                <h4>{{ news.title }}</h4>
+                                <p class="short-description">
+                                    {{ news.content }}
+                                </p>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+    </section>
+
+{% endblock %}

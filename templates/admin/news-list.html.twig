@@ -1,0 +1,55 @@
+{% extends 'layout/layout-admin.html.twig' %}
+
+{% block header %}<a class="navbar-brand" href="{{ url('newsList') }}">News</a>{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="card strpied-tabled-with-hover">
+            <div class="card-header ">
+                <h4 class="card-title">News</h4>
+                <a href="{{ url('newsCreate') }}">New</a>
+            </div>
+            <div class="card-body table-full-width table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Image</th>
+                    <th>Tags</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+
+                    {% for element in list %}
+
+                        <tr>
+                            <td>{{ element.id }}</td>
+                            <td>{{ element.title }}</td>
+                            <td>{{ element.date|date("d/m/Y") }}</td>
+                            <td>{{ element.image }}</td>
+                            <td>
+
+                                {% for tag in element.tags %}
+
+                                    <span>{{ tag.name }} </span>
+
+                                {% endfor %}
+
+                            </td>
+                            <td>
+                                <a style="margin-right: 20px" href="{{ url('newsEdit', {id: element.id}) }}">Edit</a>
+                                <a href="{{ url('newsDelete', {id: element.id}) }}">Delete</a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

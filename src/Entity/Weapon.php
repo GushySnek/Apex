@@ -3,9 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\WeaponRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=WeaponRepository::class)
@@ -25,12 +24,13 @@ class Weapon
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=1000)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Tag::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $type;
 
@@ -63,17 +63,19 @@ class Weapon
      * @ORM\ManyToOne(targetEntity=AmmoType::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $AmmoTypeId;
+    private $ammoType;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Tag::class)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Gedmo\Slug(fields={"name"})
      */
-    private $tags;
+    private $slug;
 
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Tag::class, cascade={"remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $tag;
 
     public function getId(): ?int
     {
@@ -104,12 +106,12 @@ class Weapon
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): ?Tag
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(?Tag $type): self
     {
         $this->type = $type;
 
@@ -176,40 +178,38 @@ class Weapon
         return $this;
     }
 
-    public function getAmmoTypeId(): ?AmmoType
+    public function getAmmoType(): ?AmmoType
     {
-        return $this->AmmoTypeId;
+        return $this->ammoType;
     }
 
-    public function setAmmoTypeId(?AmmoType $AmmoTypeId): self
+    public function setAmmoType(?AmmoType $ammoType): self
     {
-        $this->AmmoTypeId = $AmmoTypeId;
+        $this->ammoType = $ammoType;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Tag[]
-     */
-    public function getTags(): Collection
+    public function getTag(): ?Tag
     {
-        return $this->tags;
+        return $this->tag;
     }
 
-    public function addTag(Tag $tag): self
+    public function setTag(?Tag $tag): self
     {
-        if (!$this->tags->contains($tag)) {
-            $this->tags[] = $tag;
-        }
+        $this->tag = $tag;
 
         return $this;
     }
 
-    public function removeTag(Tag $tag): self
+    public function getSlug(): ?string
     {
-        if ($this->tags->contains($tag)) {
-            $this->tags->removeElement($tag);
-        }
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

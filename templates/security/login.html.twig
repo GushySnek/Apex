@@ -1,0 +1,59 @@
+{% extends 'layout/layout-main.html.twig' %}
+
+{% block content %}
+
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/header-bg/1.jpg') }}">
+        <div class="container">
+            <h2>Log In</h2>
+        </div>
+    </section>
+    <!-- Page top section end -->
+
+    <!-- Blog section -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <p class="text-center mb-1">
+                                You are logged in as {{ app.user.username }}, <a class="site-btn site-btn-small" href="{{ path('app_logout') }}">Logout</a>
+                            </p>
+                        {% endif %}
+
+                        <div class="widget">
+                            <input type="text" value="{{ last_username }}" placeholder="Username" name="username" id="inputUsername" required
+                                   autofocus>
+                        </div>
+                        <div class="widget mt-2">
+                            <input type="password" placeholder="Password" name="password" id="inputPassword" required>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        <div class="text-center">
+                            <button class="site-btn mt-1" type="submit">
+                                Log in
+                            </button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-1">
+                        <a class="site-btn site-btn-small" href="{{ url('resetPassword') }}">Forgot password ?</a>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a class="site-btn site-btn-small" href="{{ path('register') }}">Create a profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog section end -->
+
+{% endblock %}

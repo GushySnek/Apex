@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Comment
 {
@@ -18,7 +21,7 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=1000)
      */
     private $content;
 
@@ -34,7 +37,7 @@ class Comment
     private $UserId;
 
     /**
-     * @ORM\ManyToOne(targetEntity=News::class)
+     * @ORM\ManyToOne(targetEntity=News::class, inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $NewsId;
@@ -56,12 +59,12 @@ class Comment
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTimeInterface $date): self
     {
         $this->date = $date;
 
@@ -90,5 +93,12 @@ class Comment
         $this->NewsId = $NewsId;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist() {
+        $this->date = new DateTime();
     }
 }

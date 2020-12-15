@@ -1,17 +1,11 @@
-{% extends 'layout/layout-main.html.twig' %}
+{% extends 'layout/layout-wiki.html.twig' %}
 
-{% block content %}
+{% block title %}News{% endblock title %}
 
-    <!-- Page top section -->
-    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/header-bg/2.jpg') }}">
-        <div class="container">
-            <h2>News</h2>
-        </div>
-    </section>
-    <!-- Page top section end -->
+{% block list %}
 
-    <!-- News section -->
-    <section class="blog-section spad">
+    <!-- List section -->
+    <section class="characters-boxes-section spad">
         <div class="container">
             <div class="game-title">
                 <h2>Latest News</h2>
@@ -19,85 +13,143 @@
             <div class="row">
                 <div class="col-lg-3 sidebar">
                     <div class="sb-widget">
-                        <form class="sb-search">
-                            <input type="text" placeholder="Search">
-                        </form>
-                    </div>
-                    <div class="sb-widget">
                         <h2 class="sb-title">Categories</h2>
+                        <div id="accordion">
+                            <div class="accordion-menu">
 
-                        {% include('include/accordion.html.twig') %}
+                                {% for menuElement in menu.children[0].children %}
 
-                        <div class="text-center mt-1">
-                            <a href="{{ url('news') }}" class="site-btn">Filter</a>
+                                    <a href="{{ menuElement.link }}">{{ menuElement.title }}</a>
+
+                                {% endfor %}
+
+                            </div>
+                            <div class="accordion-menu">
+                                <a class="accordion-header" data-target="#heroes" data-toggle="collapse">
+                                    Heroes
+                                </a>
+                                <div id="heroes" class="collapse sub-menu" data-parent="#accordion">
+                                    <ul class="sb-cata-list">
+
+                                        {% for menuElement in menu.children[1].children %}
+
+                                            <li>
+                                                <a href="{{ menuElement.link }}">{{ menuElement.title }}</a>
+                                            </li>
+
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="accordion-menu">
+                                <a class="accordion-header" data-target="#weapons" data-toggle="collapse">
+                                    Weapons
+                                </a>
+                                <div id="weapons" class="collapse sub-menu" data-parent="#accordion">
+                                    <ul class="sb-cata-list">
+
+                                        {% for menuElement in menu.children[2].children %}
+
+                                            <li>
+                                                <a href="{{ menuElement.link }}">{{ menuElement.title }}</a>
+                                            </li>
+
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="blog-post featured-post">
-                        <a href="{{ url('news-details') }}">
-                            <img src="{{ asset('assets/img/blog/1.jpg') }}" alt="">
-                        </a>
-                        <div class="post-date">April 1, 2019</div>
-                        <a href="{{ url('news-details') }}">
-                            <h3>Update 1.24</h3>
-                        </a>
-                        <div class="post-metas">
-                            <div class="post-meta">By Admin</div>
-                            <div class="post-meta"><a href="#">Updates</a></div>
+
+                {% if featured %}
+
+                    <div class="col-lg-9 col-sm-4 mb-1">
+                        <div class="characters-box">
+                            <a href="{{ url('news-details', {slug: featured.slug}) }}">
+                                <div class="news-img-small text-center">
+                                    <img src="{{ asset('uploads/'~featured.image) }}" alt="{{ featured.title }}">
+                                </div>
+                                <div class="post-date">{{ featured.date|date('d/m/Y') }}</div>
+                            </a>
+                            <div class="post-metas">
+
+                                {% for tag in featured.tags %}
+
+                                    <div class="post-meta">
+                                        <a href="{{ url('newsTag', {name: tag.name}) }}">{{ tag.name }}</a>
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+                            <a href="{{ url('news-details', {slug: featured.slug}) }}">
+                                <h4>{{ featured.title }}</h4>
+                                <p class="short-description">
+                                    {{ featured.content }}
+                                </p>
+                            </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Morbi id dictum quam, ut commodo lorem. In at nisi nec arcu porttitor aliquet vitae at dui. </p>
                     </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="site-pagination">
-                    <a href="" class="sp-prev">Previous</a>
-                    <a href="#">01</a>
-                    <a href="#" class="active">02</a>
-                    <a href="#">03</a>
-                    <a href="#">04</a>
-                    <a href="#">05</a>
-                    <a href="" class="sp-next">Next</a>
-                </div>
+
+                {% endif %}
+
             </div>
             <div class="row">
 
-                {% for i in 0..8 %}
+                {% for news in newsList %}
 
-                    <div class="col-md-4">
-                        <div class="blog-post">
-                            <a href="{{ url('news-details') }}">
-                                <img src="{{ asset('assets/img/blog/2.jpg') }}" alt="">
+                    <div class="col-lg-4 col-sm-6 mb-1">
+                        <div class="characters-box">
+                            <a href="{{ url('news-details', {slug: news.slug}) }}">
+                                <div class="character-img-small text-center">
+                                    <img src="{{ asset('uploads/'~news.image) }}" alt="{{ news.title }}">
+                                </div>
+                                <div class="post-date">{{ news.date|date('d/m/Y') }}</div>
                             </a>
-                            <div class="post-date">April 1,2019</div>
-                            <a href="{{ url('news-details') }}">
-                                <h4>Update 1.24</h4>
-                            </a>
-                            <div class="post-metas">
-                                <div class="post-meta">By Admin</div>
-                                <div class="post-meta"><a href="#">Updates</a></div>
+                                <div class="post-metas">
+
+                                {% for tag in news.tags %}
+
+                                    <div class="post-meta">
+                                        <a href="{{ url('newsTag', {name: tag.name}) }}">{{ tag.name }}</a>
+                                    </div>
+
+                                {% endfor %}
+
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
+                            <a href="{{ url('news-details', {slug: news.slug}) }}">
+                                <h4>{{ news.title }}</h4>
+                                <p class="short-description">
+                                    {{ news.content }}
+                                </p>
+                            </a>
                         </div>
                     </div>
 
                 {% endfor %}
 
             </div>
-            <div class="row justify-content-center">
-                <div class="site-pagination">
-                    <a href="" class="sp-prev">Previous</a>
-                    <a href="#">01</a>
-                    <a href="#" class="active">02</a>
-                    <a href="#">03</a>
-                    <a href="#">04</a>
-                    <a href="#">05</a>
-                    <a href="" class="sp-next">Next</a>
+
+            {% if newsList.totalItemCount > 3 %}
+
+                <div class="row mb50 mt50">
+
+                    {% for i in 1..(newsList.totalItemCount/newsList.itemNumberPerPage) | round(0, 'ceil') %}
+
+                        <a href="{{ url(app.request.get('_route'), {'name': app.request.get('name'), 'page' : i }) }}"
+                           class="site-btn site-btn-very-small {{ i == app.request.get('page') ? 'current' : '' }}">{{ i }}</a>
+
+                    {% endfor %}
+
                 </div>
-            </div>
+
+            {% endif %}
+
         </div>
     </section>
-    <!-- News section end -->
+    <!-- List section end -->
 
 {% endblock %}

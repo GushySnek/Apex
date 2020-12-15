@@ -4,7 +4,6 @@
   image: assets/img/ammo-types/Light_Rounds.png
   tags:
     - Updates
-    - Sentinel
 
 - title: Halloween
   date: "31-10-2020"
@@ -16,4 +15,3 @@
   image: assets/img/ammo-types/Light_Rounds.png
   tags:
     - Events
-    - Lifeline

@@ -8,7 +8,7 @@
   role: Support
   image: assets/img/ammo-types/Light_Rounds.png
   tags:
-    - Characters
+    - Support
     - Lifeline
   skills:
     - D.O.C. Heal Drone
@@ -26,7 +26,7 @@
   role: Defensive
   image: assets/img/ammo-types/Light_Rounds.png
   tags:
-    - Characters
+    - Defensive
     - Rampart
   skills:
     - Amped Cover

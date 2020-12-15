@@ -13,32 +13,7 @@
     {% block presentation %}
     {% endblock %}
 
-    <!-- List section -->
-    <section class="characters-boxes-section spad">
-        <div class="container">
-            <div class="game-title">
-                <h2>{% block listTitle %}{% endblock %}</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 sidebar">
-                    <div class="sb-widget">
-                        <h2 class="sb-title">Categories</h2>
-                        <ul class="sb-cata-list checklist">
-                            {% block categories %}
-                            {% endblock %}
-                        </ul>
-                        <div class="text-center mt-1">
-                            <a href="{{ url('news') }}" class="site-btn">Filter</a>
-                        </div>
-                    </div>
-                </div>
-
-                {% block list %}
-                {% endblock %}
-
-            </div>
-        </div>
-    </section>
-    <!-- List section end -->
+    {% block list %}
+    {% endblock %}
 
 {% endblock %}

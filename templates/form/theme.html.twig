@@ -1,0 +1,12 @@
+{% use 'form_div_layout.html.twig' %}
+
+{% block form_widget %}
+    <div class="widget">
+        {{ parent() }}
+    </div>
+{% endblock form_widget %}
+
+{% block submit_widget %}
+    <button class="site-btn" type="submit">{{ name }}</button>
+{% endblock submit_widget %}
+

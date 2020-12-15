@@ -1,5 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+
+    <!-- Favicon -->
+    <link href="{{ asset('assets/img/favicon.ico') }}" rel="shortcut icon"/>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+          rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}"/>
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+
+{% endblock %}
+
 {% block body %}
     <!-- Header section -->
     <header class="header-section">
@@ -9,11 +31,17 @@
         <ul class="main-menu">
             <li><a class="line" href="{{ url('home') }}">Home</a></li>
             <li><a class="line" href="{{ url('news') }}">News</a></li>
-            <li><a class="line" href="{{ url('characters') }}">Characters</a></li>
+            <li><a class="line" href="{{ url('heroes') }}">Heroes</a></li>
             <li><a class="line" href="{{ url('weapons') }}">Weapons</a></li>
             <li><a class="line" href="{{ url('contact') }}">Contact</a></li>
+            <li>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a class="profile-link line" href="{{ url('myAccount') }}"><img src="{{ asset('uploads/'~app.user.image) }}" alt="{{ app.user.username }}"></a>
+            {% else %}
+                <a class="line" href="{{ path('app_login') }}">Log In</a>
+            {% endif %}
+            </li>
         </ul>
-        <a class="profile-link" href="{{ url('profile-edit') }}"><img src="{{ asset('assets/img/author-thumbs/2.jpg') }}" alt=""></a>
     </header>
     <!-- Header section end -->
 
@@ -23,11 +51,26 @@
         <div class="container">
             <div class="copyright">
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
         </div>
     </div>
-    
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/input.js') }}"></script>
+
 {% endblock %}

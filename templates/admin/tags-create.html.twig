@@ -1,0 +1,13 @@
+{% extends 'layout/layout-admin.html.twig' %}
+
+{% block header %}<a class="navbar-brand" href="{{ url('tagsList') }}">Tags</a>{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-10">
+
+        {{ form(form) }}
+
+    </div>
+
+{% endblock %}

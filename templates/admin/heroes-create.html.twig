@@ -1,0 +1,35 @@
+{% extends 'layout/layout-admin.html.twig' %}
+
+{% block header %}<a class="navbar-brand" href="{{ url('heroesList') }}">Heroes</a>{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-10">
+
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.role) }}
+        {{ form_row(form.image) }}
+
+        {{ form_label(form.skills) }}
+
+        <ul class="skills"
+            data-prototype="{{ form_widget(form.skills.vars.prototype)|e('html_attr') }}">
+
+            {% for skill in form.skills %}
+                <li>{{ form_row(skill.name) }}</li>
+                <li>{{ form_row(skill.description) }}</li>
+                <li>{{ form_row(skill.image) }}</li>
+            {% endfor %}
+
+        </ul>
+        <button type="button" class="add_item_link" data-collection-holder-class="skills">Add a skill</button>
+
+        {% do form.skills.setRendered %}
+
+        {{ form_rest(form) }}
+
+    </div>
+
+{% endblock %}

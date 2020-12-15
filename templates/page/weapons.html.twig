@@ -4,88 +4,107 @@
 
 {% block presentation %}
 
-    <!-- Character section 1 -->
-    <section class="characters-section character-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="character-info">
-                        <h2>Sentinel</h2>
-                        <h5>Sniper Rifle</h5>
-                        <p class="pt-1">The Sentinel is a sniper rifle introduced in Season 4.</p>
-                        <p class="mb-1">It has a unique 'Disruptor' mechanic: 2 Shield Cells (1 with the Level 4 Body Shield) charge up the Sentinel, making its shots guaranteed to completely shatter enemies' shields. Charging takes 5 seconds and lasts 120 seconds, although each shot will shorten the timer by 15 seconds.</p>
-                        <div class="progress-warp">
-                            <div class="small-blog-list">
-                                <div class="sb-item weapon">
-                                    <div class="sb-text">
-                                        <h6>Damage:</h6>
-                                        <p>70 body/140 head</p>
+    {% if weaponDetails is defined %}
+
+        <!-- Character section 1 -->
+        <section class="characters-section character-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="character-info">
+                            <h2>{{ weaponDetails.name }}</h2>
+                            <h5>{{ weaponDetails.type }}</h5>
+                            <p class="pt-1">{{ weaponDetails.description }}</p>
+                            <div class="progress-warp">
+                                <div class="small-blog-list">
+                                    <div class="sb-item weapon">
+                                        <div class="sb-text">
+                                            <h6>Damage:</h6>
+                                            <p>{{ weaponDetails.bodyDamage }} body/{{ weaponDetails.headDamage }} head</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="sb-item weapon">
-                                    <div class="sb-text">
-                                        <h6>Rate of Fire:</h6>
-                                        <p>37.5 Rounds/minute</p>
+                                    <div class="sb-item weapon">
+                                        <div class="sb-text">
+                                            <h6>Rate of Fire:</h6>
+                                            <p>{{ weaponDetails.rateOfFire }} Rounds/minute</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="sb-item weapon">
-                                    <div class="sb-text">
-                                        <h6>Fire Mode:</h6>
-                                        <p>Single Fire</p>
+                                    <div class="sb-item weapon">
+                                        <div class="sb-text">
+                                            <h6>Fire Mode:</h6>
+                                            <p>{{ weaponDetails.fireMode }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="sb-item weapon">
-                                    <div class="sb-text">
-                                        <h6>Ammo Type:</h6>
-                                        <img src="{{ asset('assets/img/ammo-types/Sniper_Ammo.png') }}" alt="">
-                                        <p>Sniper Ammo</p>
+                                    <div class="sb-item weapon">
+                                        <div class="sb-text">
+                                            <h6>Ammo Type:</h6>
+                                            <img src="{{ asset(weaponDetails.ammoType.image) }}" alt="">
+                                            <p>{{ weaponDetails.ammoType.name }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
+                            <a href="{{ url('newsTag', {name: weaponDetails.name}) }}" class="site-btn">See Related News</a>
                         </div>
-                        <div class="clearfix"></div>
-                        <a href="{{ url('news') }}" class="site-btn">See Related News</a>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img class="rotate" src="{{ asset('uploads/'~weaponDetails.image) }}" alt="{{ weaponDetails.name }}">
                     </div>
                 </div>
             </div>
-            <div class="character-img">
-                <img src="{{ asset('assets/img/game-characters/2.png') }}" alt="">
-            </div>
-        </div>
-    </section>
-    <!-- Character section 1 end -->
+        </section>
+        <!-- Character section 1 end -->
 
-{% endblock %}
-
-{% block listTitle %}The Weapons{% endblock %}
-
-{% block categories %}
-
-    <li><a href="">Assault Rifles<span>5</span></a></li>
-    <li><a href="">Sub Machine Guns<span>4</span></a></li>
-    <li><a href="">Light Machine Guns<span>3</span></a></li>
-    <li><a class="active" href="">Sniper Rifles<span>5</span></a></li>
-    <li><a href="">Shotguns<span>4</span></a></li>
-    <li><a href="">Pistols<span>3</span></a></li>
+    {% endif %}
 
 {% endblock %}
 
 {% block list %}
 
-    {% for i in 0..4 %}
+    <!-- List section -->
+    <section class="characters-boxes-section spad">
+        <div class="container">
+            <div class="game-title">
+                <h2>The Weapons</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+                    <div class="sb-widget">
+                        <h2 class="sb-title">Categories</h2>
+                        <ul class="sb-cata-list checklist">
 
-        <div class="col-lg-3 col-sm-6">
-            <div class="characters-box">
-                <a href="#">
-                    <img src="{{ asset('assets/img/characters-boxes/2.png') }}" alt="">
-                </a>
-                <a href="#">
-                    <h4>Sentinel</h4>
-                </a>
-                <p>Vestibulum malesuada aliquet libero viverra cursus. Aliquam erat volut-pat. Morbi id dictum quam, ut com-modo lorem.</p>
+                            {% for menuElement in menu.children %}
+
+                                <li>
+                                    <a href="{{ menuElement.link }}">{{ menuElement.title }}</a>
+                                </li>
+
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        {% for weapon in weapons %}
+                            <a class="col-lg-4 col-sm-6 mb-1" href="{{ url('showWeapon', {slug: weapon.slug}) }}">
+                                <div class="characters-box">
+                                    <div class="weapon-img-small text-center">
+                                        <img src="{{ asset('uploads/'~weapon.image) }}" alt="{{ weapon.name }}">
+                                    </div>
+                                    <h4>{{ weapon.name }}</h4>
+                                    <p class="short-description">
+                                        {{ weapon.description }}
+                                    </p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
-
-    {% endfor %}
+    </section>
+    <!-- List section end -->
 
 {% endblock %}

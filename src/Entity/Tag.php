@@ -25,7 +25,12 @@ class Tag
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $color;
+    private $type;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -44,14 +49,30 @@ class Tag
         return $this;
     }
 
-    public function getColor(): ?string
+    public function getType(): ?string
     {
-        return $this->color;
+        return $this->type;
     }
 
-    public function setColor(string $color): self
+    public function setType(string $type): self
     {
-        $this->color = $color;
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->name;
+    }
+
+    public function getCategory(): ?bool
+    {
+        return $this->category;
+    }
+
+    public function setCategory(bool $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

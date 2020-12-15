@@ -3,27 +3,27 @@
   (1 with the Level 4 Body Shield) charge up the Sentinel, making its shots guaranteed to do extra damage. Charging
   takes 5 seconds and lasts 120 seconds, although each shot will shorten the timer by 15 seconds."
   type: Sniper Rifle
-  image: assets/img/ammo-types/Light_Rounds.png
+  image: assets/img/weapons/Sentinel.png
   bodyDamage: 70
   headDamage: 140
   rateOfFire: 37.5
   fireMode: Single
   ammoType: Sniper Ammo
   tags:
-    - Weapons
+    - Sniper Rifle
     - Sentinel
 
 - name: VK-47 Flatline
   description: "The VK-47 Flatline is an assault rifle which uses heavy rounds."
   type: Assault Rifle
-  image: assets/img/ammo-types/Light_Rounds.png
+  image: assets/img/weapons/VK-47_Flatline.png
   bodyDamage: 19
   headDamage: 38
   rateOfFire: 600
   fireMode: Auto, Single
   ammoType: Heavy Rounds
   tags:
-    - Weapons
+    - Assault Rifle
     - Flatline
 
 - name: Peacekeeper
@@ -32,12 +32,38 @@
   star shape). As a care package weapon, it can only be found in Care Packages, and cannot be fitted with foreign
   attachments or ammo. It comes pre-equipped with 20 backup ammo and a 1x Digital Threat scope."
   type: Shotgun
-  image: assets/img/ammo-types/Light_Rounds.png
+  image: assets/img/weapons/PeaceKeeper.png
   bodyDamage: 110
   headDamage: 143
   rateOfFire: 58
   fireMode: Single
   ammoType: Shotgun Shells
   tags:
-    - Weapons
+    - Shotgun
     - Peacekeeper
+
+- name: R-301 Carbine
+  description: "The R-301 Carbine is an assault rifle which uses light rounds."
+  type: Assault Rifle
+  image: assets/img/weapons/R-301_Carabine.png
+  bodyDamage: 14
+  headDamage: 28
+  rateOfFire: 816
+  fireMode: Auto, Single
+  ammoType: Light Rounds
+  tags:
+    - Assault Rifle
+    - R-301 Carbine
+
+- name: R-99 SMG
+  description: "The R-99 SMG is a sub machine gun that uses light rounds."
+  type: Sub Machine Gun
+  image: assets/img/weapons/R-99.png
+  bodyDamage: 11
+  headDamage: 17
+  rateOfFire: 1080
+  fireMode: Auto
+  ammoType: Light Rounds
+  tags:
+    - Sub Machine Gun
+    - R-99 SMG

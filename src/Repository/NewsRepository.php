@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\News;
+use App\Entity\Tag;
+use App\Search\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +20,57 @@ class NewsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, News::class);
+    }
+
+    public function findSearchResults(Search $search): array
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        if (!empty($search->getKeyword())) {
+            $qb->andWhere('n.title LIKE :keyword')
+                ->setParameter('keyword', "%{$search->getKeyword()}%");
+        }
+
+        if (count($search->getNewsTags()) > 0) {
+            $qb->leftJoin('n.tags', 'nt')
+                ->andWhere('nt in (:newsTags)')
+                ->setParameter('newsTags', $search->getNewsTags());
+        }
+
+        if (count($search->getWeaponsTags()) > 0) {
+            $qb->leftJoin('n.tags', 'wt')
+                ->andWhere('wt in (:weaponsTags)')
+                ->setParameter('weaponsTags', $search->getWeaponsTags());
+        }
+
+        if (count($search->getHeroesTags()) > 0) {
+            $qb->leftJoin('n.tags', 'ht')
+                ->andWhere('ht in (:heroesTags)')
+                ->setParameter('heroesTags', $search->getHeroesTags());
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findWithLimit($limit): array
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb->orderBy('n.date', 'DESC')
+            ->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findByTag(string $name): array
+    {
+        $qb = $this->createQueryBuilder('n');
+
+        $qb->leftJoin('n.tags', 'nt')
+            ->andWhere('nt.name = :name')
+            ->setParameter('name', $name);
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**
