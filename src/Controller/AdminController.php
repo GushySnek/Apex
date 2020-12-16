@@ -39,7 +39,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function weaponsList(WeaponRepository $weaponRepository) {
+    public function weaponsList(WeaponRepository $weaponRepository)
+    {
         $list = $weaponRepository->findAll();
         return $this->render('admin/weapons-list.html.twig', ['list' => $list]);
     }
@@ -52,7 +53,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function weaponCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function weaponCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $weapon = new Weapon();
         $form = $this->createForm(WeaponType::class, $weapon);
         $form->handleRequest($request);
@@ -79,7 +81,8 @@ class AdminController extends AbstractController
      * @param ImageUploader $imageUploader
      * @return RedirectResponse|Response
      */
-    public function weaponEdit(Weapon $weapon, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function weaponEdit(Weapon $weapon, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $form = $this->createForm(WeaponType::class, $weapon);
         $form->handleRequest($request);
 
@@ -101,7 +104,8 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function weaponDelete(Weapon $weapon, EntityManagerInterface $entityManager) {
+    public function weaponDelete(Weapon $weapon, EntityManagerInterface $entityManager)
+    {
         $entityManager->remove($weapon);
         $entityManager->flush();
 
@@ -113,7 +117,8 @@ class AdminController extends AbstractController
      * @param HeroRepository $characterRepository
      * @return Response
      */
-    public function heroesList(HeroRepository $characterRepository) {
+    public function heroesList(HeroRepository $characterRepository)
+    {
         $list = $characterRepository->findAll();
         return $this->render('admin/heroes-list.html.twig', ['list' => $list]);
     }
@@ -126,7 +131,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function heroCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function heroCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $hero = new Hero();
         $form = $this->createForm(HeroType::class, $hero);
         $form->handleRequest($request);
@@ -154,7 +160,8 @@ class AdminController extends AbstractController
      * @param ImageUploader $imageUploader
      * @return RedirectResponse|Response
      */
-    public function heroEdit(Hero $hero, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function heroEdit(Hero $hero, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $form = $this->createForm(HeroType::class, $hero);
         $form->handleRequest($request);
 
@@ -177,7 +184,8 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function heroDelete(Hero $hero, EntityManagerInterface $entityManager) {
+    public function heroDelete(Hero $hero, EntityManagerInterface $entityManager)
+    {
         $entityManager->remove($hero);
         $entityManager->flush();
 
@@ -190,7 +198,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function newsList(NewsRepository $newsRepository) {
+    public function newsList(NewsRepository $newsRepository)
+    {
         $list = $newsRepository->findAll();
         return $this->render('admin/news-list.html.twig', ['list' => $list]);
     }
@@ -203,7 +212,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function newsCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function newsCreate(Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $news = new News();
         $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
@@ -228,7 +238,8 @@ class AdminController extends AbstractController
      * @param ImageUploader $imageUploader
      * @return RedirectResponse|Response
      */
-    public function newsEdit(News $news, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader) {
+    public function newsEdit(News $news, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
+    {
         $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
 
@@ -250,7 +261,8 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function newsDelete(News $news, EntityManagerInterface $entityManager) {
+    public function newsDelete(News $news, EntityManagerInterface $entityManager)
+    {
         $entityManager->remove($news);
         $entityManager->flush();
 
@@ -263,7 +275,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function tagsList(TagRepository $tagRepository) {
+    public function tagsList(TagRepository $tagRepository)
+    {
         $list = $tagRepository->findAll();
         return $this->render('admin/tags-list.html.twig', ['list' => $list]);
     }
@@ -275,7 +288,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function tagsCreate(Request $request, EntityManagerInterface $entityManager) {
+    public function tagsCreate(Request $request, EntityManagerInterface $entityManager)
+    {
         $tag = new Tag();
         $tag->setCategory(true);
         $form = $this->createForm(TagType::class, $tag);
@@ -298,7 +312,8 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function tagsEdit(Tag $tag, Request $request, EntityManagerInterface $entityManager) {
+    public function tagsEdit(Tag $tag, Request $request, EntityManagerInterface $entityManager)
+    {
         $form = $this->createForm(TagType::class, $tag);
         $form->handleRequest($request);
 
@@ -318,7 +333,8 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function tagsDelete(Tag $tag, EntityManagerInterface $entityManager) {
+    public function tagsDelete(Tag $tag, EntityManagerInterface $entityManager)
+    {
         $entityManager->remove($tag);
         $entityManager->flush();
 
@@ -331,7 +347,8 @@ class AdminController extends AbstractController
      * @return Response
      */
 
-    public function contactsList(ContactRepository $contactRepository) {
+    public function contactsList(ContactRepository $contactRepository)
+    {
         $list = $contactRepository->findAll();
         return $this->render('admin/contact-list.html.twig', ['list' => $list]);
     }
@@ -342,29 +359,32 @@ class AdminController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return RedirectResponse|Response
      */
-    public function contactsDelete(Contact $contact, EntityManagerInterface $entityManager) {
+    public function contactsDelete(Contact $contact, EntityManagerInterface $entityManager)
+    {
         $entityManager->remove($contact);
         $entityManager->flush();
 
         return $this->redirectToRoute("contactsList");
     }
 
-    private function createWeaponsTag(Weapon $weapon, EntityManagerInterface $entityManager) {
+    private function createWeaponsTag(Weapon $weapon, EntityManagerInterface $entityManager)
+    {
         $nameTag = new Tag();
         $nameTag->setName($weapon->getName())
-                ->setType('weapons')
-                ->setCategory(false);;
+            ->setType('weapons')
+            ->setCategory(false);;
 
         $weapon->setTag($nameTag);
 
         $entityManager->persist($nameTag);
     }
 
-    private function createHeroesTag(Hero $hero, EntityManagerInterface $entityManager) {
+    private function createHeroesTag(Hero $hero, EntityManagerInterface $entityManager)
+    {
         $nameTag = new Tag();
         $nameTag->setName($hero->getName())
-                ->setType('heroes')
-                ->setCategory(false);
+            ->setType('heroes')
+            ->setCategory(false);
 
         $hero->setTag($nameTag);
 
