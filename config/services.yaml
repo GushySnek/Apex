@@ -33,7 +33,7 @@ services:
     App\Service\ImageUploader:
         arguments: ['%images_path%']
 
-    App\Service\Listener\WeaponListener: # le nom complet de la classe comme identifiant de service
+    App\Service\Listener\DoctrineListener: # le nom complet de la classe comme identifiant de service
         arguments: ['%images_path%']
         tags:
             - name: 'doctrine.event_subscriber'

@@ -84,6 +84,7 @@ class AdminController extends AbstractController
     public function weaponEdit(Weapon $weapon, Request $request, EntityManagerInterface $entityManager, ImageUploader $imageUploader)
     {
         $form = $this->createForm(WeaponType::class, $weapon);
+        $form->get('image')->setData($weapon->getImage());
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -372,7 +373,7 @@ class AdminController extends AbstractController
         $nameTag = new Tag();
         $nameTag->setName($weapon->getName())
             ->setType('weapons')
-            ->setCategory(false);;
+            ->setCategory(false);
 
         $weapon->setTag($nameTag);
 

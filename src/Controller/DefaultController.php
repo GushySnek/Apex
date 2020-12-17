@@ -8,17 +8,14 @@ use App\Entity\Comment;
 use App\Entity\Contact;
 use App\Entity\Hero;
 use App\Entity\News;
-use App\Entity\User;
 use App\Entity\Weapon;
 use App\Form\CommentType;
 use App\Form\ContactType;
-use App\Form\RegisterType;
 use App\Search\Search;
 use App\Form\SearchFormType;
 use App\Repository\HeroRepository;
 use App\Repository\NewsRepository;
 use App\Repository\WeaponRepository;
-use App\Service\ImageUploader;
 use App\Service\MenuGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -27,7 +24,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DefaultController extends AbstractController
 {
@@ -71,7 +67,7 @@ class DefaultController extends AbstractController
 
         $menu = $menuGenerator->generateHeroesMenu('heroesTag');
 
-        return $this->render('page/characters.html.twig', ['heroes' => $result, 'menu' => $menu]);
+        return $this->render('page/heroes.html.twig', ['heroes' => $result, 'menu' => $menu]);
     }
 
     /**
@@ -88,7 +84,7 @@ class DefaultController extends AbstractController
 
         $menu = $menuGenerator->generateHeroesMenu('heroesTag');
 
-        return $this->render("page/characters.html.twig", ['heroes' => $heroes, 'heroDetails' => $hero, 'menu' => $menu]);
+        return $this->render("page/heroes.html.twig", ['heroes' => $heroes, 'heroDetails' => $hero, 'menu' => $menu]);
     }
 
     /**
@@ -105,7 +101,7 @@ class DefaultController extends AbstractController
 
         $menu = $menuGenerator->generateHeroesMenu('heroesTag');
 
-        return $this->render("page/characters.html.twig", ['heroes' => $heroes, 'menu' => $menu]);
+        return $this->render("page/heroes.html.twig", ['heroes' => $heroes, 'menu' => $menu]);
     }
 
     /**
@@ -272,64 +268,5 @@ class DefaultController extends AbstractController
         }
 
         return $this->render("page/contact.html.twig", ['form' => $form->createView()]);
-    }
-
-    /**
-     * @Route("/profile-create", name="profile-create")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @param UserPasswordEncoderInterface $userPasswordEncoder
-     * @param ImageUploader $imageUploader
-     * @return RedirectResponse|Response
-     */
-
-    public function profileCreate(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder, ImageUploader $imageUploader)
-    {
-        $user = new User();
-        $user->setRoles(['ROLE_USER']);
-        $form = $this->createForm(RegisterType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $imageUploader->uploadOneFileFromForm($form);
-            $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPassword()))
-                 ->eraseCredentials();
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('page/profile-create.html.twig', ['form' => $form->createView()]);
-    }
-
-    /**
-     * @Route("/profile/edit", name="profileEdit")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @param UserPasswordEncoderInterface $userPasswordEncoder
-     * @param ImageUploader $imageUploader
-     * @return RedirectResponse|Response
-     */
-
-    public function profileEdit(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder, ImageUploader $imageUploader)
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
-
-        $user = $this->getUser();
-        $form = $this->createForm(RegisterType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $imageUploader->uploadOneFileFromForm($form);
-            $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPassword()))
-                 ->eraseCredentials();
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('page/profile-create.html.twig', ['form' => $form->createView()]);
     }
 }

@@ -28,7 +28,8 @@ class ImageUploader
     public function uploadOneFileFromForm(FormInterface $form)
     {
         $imageFile = $form->get('image')->getData();
-        if ($imageFile) {
+        dump($this->imagesPath.$imageFile);
+        if ($imageFile && !file_exists ($this->imagesPath.$imageFile)) {
             $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
             // this is needed to safely include the file name as part of the URL
             $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);

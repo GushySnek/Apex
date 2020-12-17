@@ -11,7 +11,7 @@ use App\Entity\Weapon;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
-class WeaponListener implements EventSubscriber
+class DoctrineListener implements EventSubscriber
 {
     private $imagesPath;
 

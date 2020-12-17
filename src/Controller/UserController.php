@@ -32,7 +32,7 @@ class UserController extends AbstractController
             $this->addFlash('success', "Your email has been updated");
         }
 
-        return $this->render("page/profile-edit.html.twig", ['form' => $form->createView()]);
+        return $this->render("security/my-account.html.twig", ['form' => $form->createView()]);
     }
 
     /**
@@ -50,6 +50,6 @@ class UserController extends AbstractController
             $resetPasswordService->savePassword($user);
         }
 
-        return $this->render("page/profile-edit.html.twig", ['formPassword' => $form->createView()]);
+        return $this->render("security/my-account.html.twig", ['formPassword' => $form->createView()]);
     }
 }

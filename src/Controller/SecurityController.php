@@ -85,7 +85,7 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('registerWaitingValidation');
         }
 
-        return $this->render('page/profile-create.html.twig', ['form' => $form->createView()]);
+        return $this->render('security/register.html.twig', ['form' => $form->createView()]);
     }
 
     /**

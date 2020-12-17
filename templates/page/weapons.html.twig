@@ -1,8 +1,14 @@
-{% extends 'layout/layout-wiki.html.twig' %}
+{% extends 'layout/layout-main.html.twig' %}
 
-{% block title %}Weapons{% endblock title %}
+{% block content %}
 
-{% block presentation %}
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{ asset('assets/img/blog/1.jpg') }}">
+        <div class="container">
+            <h2>Weapons</h2>
+        </div>
+    </section>
+    <!-- Page top section end -->
 
     {% if weaponDetails is defined %}
 
@@ -57,10 +63,6 @@
         <!-- Character section 1 end -->
 
     {% endif %}
-
-{% endblock %}
-
-{% block list %}
 
     <!-- List section -->
     <section class="characters-boxes-section spad">
